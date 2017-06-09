@@ -38,4 +38,8 @@ export class AccountPage {
         this.appCtrl.getRootNav().setRoot(LoginPage);
     }
 
+    updatePicture() {
+        console.log("update!");
+    }
+
 }

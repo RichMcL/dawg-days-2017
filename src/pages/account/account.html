@@ -13,13 +13,10 @@
 <ion-content padding>
     <div *ngIf="user">
         <ion-card>
-            <div class="picture-container">
+            <div class="picture-container" (click)="updatePicture()">
+                <ion-icon name="camera-outline"></ion-icon>
                 <img *ngIf="!user.picture" src="assets/images/default.svg" />
                 <img *ngIf="user.picture" src="{{user.picture}}" />
-            </div>
-
-            <div padding>
-                <button ion-button full primary (click)="updatePicture()">Change Picture</button>
             </div>
 
             <ion-item>
@@ -28,7 +25,7 @@
             </ion-item>
 
             <div padding>
-                <button ion-button full primary (click)="updatePicture()">Save</button>
+                <button ion-button full primary (click)="save()">Save</button>
             </div>
         </ion-card>
     </div>
