@@ -5,16 +5,33 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Account</ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+        <ion-title>Account</ion-title>
+    </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <div padding>
-    <button ion-button full primary (click)="logout()">Logout</button>
-  </div>
+    <div *ngIf="user">
+        <ion-card>
+            <div class="picture-container">
+                <img *ngIf="!user.picture" src="assets/images/default.svg" />
+                <img *ngIf="user.picture" src="{{user.picture}}" />
+            </div>
+
+            <div padding>
+                <button ion-button full primary (click)="updatePicture()">Change Picture</button>
+            </div>
+
+            <ion-item>
+                <ion-label floating>Display Name</ion-label>
+                <ion-input type="text" [(ngModel)]="user.displayName"></ion-input>
+            </ion-item>
+
+            <div padding>
+                <button ion-button full primary (click)="updatePicture()">Save</button>
+            </div>
+        </ion-card>
+
+        <button ion-button full clear (click)="logout()">Logout</button>
+    </div>
 </ion-content>
