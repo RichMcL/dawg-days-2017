@@ -3,7 +3,6 @@ import { IonicPage, NavController } from 'ionic-angular';
 
 import {UsersPage} from "../users/users";
 import {AccountPage} from "../account/account";
-import {ChatsPage} from "../chats/chats";
 
 /**
  * Generated class for the TabsPage tabs.
@@ -19,7 +18,6 @@ import {ChatsPage} from "../chats/chats";
 export class TabsPage {
 
   usersRoot = UsersPage;
-  chatsRoot = ChatsPage;
   accountRoot = AccountPage;
 
 

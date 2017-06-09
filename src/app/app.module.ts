@@ -13,7 +13,6 @@ import { AuthProvider } from '../providers/auth/auth';
 import { UserProvider } from '../providers/user/user';
 import { UsersPage } from "../pages/users/users";
 import { AccountPage } from "../pages/account/account";
-import { ChatsPage } from "../pages/chats/chats";
 import { ChatViewPage } from "../pages/chat-view/chat-view";
 import { ChatsProvider } from '../providers/chats/chats';
 
@@ -38,7 +37,6 @@ const myFirebaseAuthConfig = {
     LoginPage,
     UsersPage,
     AccountPage,
-    ChatsPage,
     ChatViewPage
   ],
   imports: [
