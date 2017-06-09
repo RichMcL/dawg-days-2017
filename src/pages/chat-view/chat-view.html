@@ -1,0 +1,54 @@
+<!--
+  Generated template for the ChatViewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{messagee.email}}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="chat-view" id="chat-view">
+    <div class="messages">
+        <div class="message" *ngFor="let chat of chats | async">
+            <div ion-item *ngIf="uid !== chat.from">
+                <ion-avatar item-left>
+                    <img *ngIf="!messagee.picture" src="assets/images/default.svg">
+                    <img *ngIf="messagee.picture" src="{{messagee.picture}}">
+                </ion-avatar>
+                <span>
+          <div class="user-name">{{messagee.email}}</div>
+          <span class="message-content">{{chat.message}}</span>
+                </span>
+            </div>
+
+            <div ion-item *ngIf="uid === chat.from">
+                <ion-avatar item-left>
+                    <img *ngIf="!user.picture" src="assets/images/default.svg">
+                    <img *ngIf="user.picture" src="{{user.picture}}">
+                </ion-avatar>
+                <span>
+          <div class="user-name">{{user.email}}</div>
+          <span class="message-content">{{chat.message}}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-row>
+            <ion-col [hidden]="!chats">
+                <ion-input type="text" placeholder="Enter Message" [(ngModel)]="message" class="message-input"></ion-input>
+            </ion-col>
+            <ion-col col-auto [hidden]="!chats">
+                <button ion-button full (click)="sendMessage()"><ion-icon name="send"></ion-icon></button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

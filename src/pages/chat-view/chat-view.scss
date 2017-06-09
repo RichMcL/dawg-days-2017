@@ -1,0 +1,33 @@
+.chat-view {
+  .messages {
+    width: 100%;
+    // position: absolute;
+    .message {
+      
+    }
+
+    .message-content {
+        text-overflow: initial;
+        white-space: normal;
+    }
+  }
+
+  .user-name {
+      font-weight: bold;
+  }
+
+  .message-input {
+      background-color: white;
+  }
+}
+
+ion-footer {
+    ion-input {
+        height: 100%;        
+        padding-left: 10px;
+        display: flex;
+        background-color: white;
+        border: 1px solid #c7c7c7;
+
+    }
+}
