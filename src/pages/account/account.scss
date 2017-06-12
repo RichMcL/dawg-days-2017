@@ -1,3 +1,19 @@
 page-account {
+    .picture-container {
+        position: relative;
+        width: 50%; 
+        margin: 0 auto;
 
+        ion-icon {
+            position: absolute;        
+            top: 0;
+            left: 5px;
+            font-size: 32px;
+        }
+
+        img {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    }
 }
