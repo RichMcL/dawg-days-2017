@@ -18,6 +18,7 @@ import { ChatsProvider } from '../providers/chats/chats';
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireAuthModule} from "angularfire2/auth";
 import { FilterPipe } from '../pipes/filter/filter';
+import { Camera } from "@ionic-native/camera";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCLRvhu43PUO9Y_kPmkt2nls36LoMqFAkA",
@@ -57,6 +58,7 @@ export const firebaseConfig = {
     ChatViewPage
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

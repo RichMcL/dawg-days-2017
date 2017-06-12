@@ -36,7 +36,8 @@ export class AccountPage {
     }
 
     updatePicture() {
-        console.log("update!");
+        console.log("update photo!");
+        this.userProvider.updatePicture();
     }
 
     updateDisplayName() {

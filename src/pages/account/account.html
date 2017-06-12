@@ -15,7 +15,7 @@
         <ion-card>
             <div class="picture-container" (click)="updatePicture()">
                 <ion-icon name="camera-outline"></ion-icon>
-                <img *ngIf="!user.picture" src="assets/images/default.svg" />
+                <img *ngIf="!user.picture" [src]="assets/images/default.svg" />
                 <img *ngIf="user.picture" src="{{user.picture}}" />
             </div>
 
