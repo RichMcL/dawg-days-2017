@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import { AngularFire } from "angularfire2";
 import { UserProvider } from "../user/user";
+import {AngularFireDatabase} from "angularfire2/database";
 
 /*
   Generated class for the ChatsProvider provider.
@@ -12,19 +12,19 @@ import { UserProvider } from "../user/user";
 @Injectable()
 export class ChatsProvider {
 
-  constructor(public af: AngularFire, public up: UserProvider) {
+  constructor(public afDatabase: AngularFireDatabase, public up: UserProvider) {
     console.log('Hello ChatsProvider Provider');
   }
 
     getChatRef(uid, interlocutor) {
-      let firstRef = this.af.database.object(`/chats/${uid},${interlocutor}`, {preserveSnapshot:true});
+      let firstRef = this.afDatabase.object(`/chats/${uid},${interlocutor}`, {preserveSnapshot:true});
       let promise = new Promise((resolve, reject) => {
           firstRef.subscribe(snapshot => {
                 let a = snapshot.exists();
                 if(a) {
                     resolve(`/chats/${uid},${interlocutor}`);
                 } else {
-                    let secondRef = this.af.database.object(`/chats/${interlocutor},${uid}`, {preserveSnapshot:true});
+                    let secondRef = this.afDatabase.object(`/chats/${interlocutor},${uid}`, {preserveSnapshot:true});
                     secondRef.subscribe(snapshot => {
                         let b = snapshot.exists();
                         if(!b) {
@@ -35,7 +35,7 @@ export class ChatsProvider {
                 }
             });
       });
-      
+
       return promise;
   }
 

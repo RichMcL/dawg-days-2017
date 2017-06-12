@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import "rxjs/add/operator/toPromise";
-import { AngularFire } from "angularfire2";
+import {AngularFireDatabase} from "angularfire2/database";
 
 /*
   Generated class for the UserProvider provider.
@@ -13,7 +13,7 @@ import { AngularFire } from "angularfire2";
 @Injectable()
 export class UserProvider {
 
-  constructor(public angularFire: AngularFire, public local:Storage) {
+  constructor(public afDatabase: AngularFireDatabase, public local:Storage) {
     console.log('Hello UserProvider Provider');
   }
 
@@ -25,13 +25,13 @@ export class UserProvider {
   getUser() {
     // Getting UID of Logged In User
     return this.getUid().then(uid => {
-      return this.angularFire.database.object(`/users/${uid}`);
+      return this.afDatabase.object(`/users/${uid}`);
     });
   }
 
   // Get All Users of App
   async getAllUsers() {
-    return Promise.resolve(this.angularFire.database.list('/users'));
+    return Promise.resolve(this.afDatabase.list('/users'));
   }
 
 

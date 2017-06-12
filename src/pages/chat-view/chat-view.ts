@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChatsProvider } from "../../providers/chats/chats";
-import { AngularFire, FirebaseListObservable } from "angularfire2";
 import { UserProvider } from "../../providers/user/user";
+import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
 
 /**
  * Generated class for the ChatViewPage page.
@@ -22,7 +22,7 @@ export class ChatViewPage {
   user: any;
   chats: FirebaseListObservable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public chatsProvider: ChatsProvider, public userProvider: UserProvider, public af: AngularFire) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public chatsProvider: ChatsProvider, public userProvider: UserProvider, public afDatabase: AngularFireDatabase) {
     this.uid = navParams.data.uid;
     this.messagee = navParams.data.messagee;
   }
@@ -30,7 +30,7 @@ export class ChatViewPage {
   async ngOnInit() {
     this.chatsProvider.getChatRef(this.uid, this.messagee.$key)
       .then((chatRef: any) => {
-        this.chats = this.af.database.list(chatRef);
+        this.chats = this.afDatabase.list(chatRef);
       });
 
     this.userProvider.getUser().then(userObservable => {

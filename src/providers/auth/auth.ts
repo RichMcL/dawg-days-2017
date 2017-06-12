@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, AngularFireAuth } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
 
@@ -13,16 +13,16 @@ import { Storage } from '@ionic/storage';
 @Injectable()
 export class AuthProvider {
 
-  constructor(public af: AngularFire, private angularFireAuth: AngularFireAuth, public local: Storage) {
+  constructor(public afAuth: AngularFireAuth, private angularFireAuth: AngularFireAuth, public local: Storage) {
   }
 
-  signin(credentails) {
-    return this.af.auth.login(credentails);
+  signin(credentials) {
+    return this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
   }
 
   logout() {
     this.local.remove('uid');
-    this.af.auth.logout();
+    this.afAuth.auth.signOut();
   }
 
 }

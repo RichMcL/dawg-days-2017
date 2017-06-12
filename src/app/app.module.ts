@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule  } from 'angularfire2';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -15,6 +15,8 @@ import { UsersPage } from "../pages/users/users";
 import { AccountPage } from "../pages/account/account";
 import { ChatViewPage } from "../pages/chat-view/chat-view";
 import { ChatsProvider } from '../providers/chats/chats';
+import {AngularFireDatabaseModule} from "angularfire2/database";
+import {AngularFireAuthModule} from "angularfire2/auth";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCLRvhu43PUO9Y_kPmkt2nls36LoMqFAkA",
@@ -24,11 +26,6 @@ export const firebaseConfig = {
   storageBucket: "i2f-firebase-chat.appspot.com",
   messagingSenderId: "955193895828"
 };
-
-const myFirebaseAuthConfig = {
-  provider: AuthProviders.Password,
-  method: AuthMethods.Password
-}
 
 @NgModule({
   declarations: [
@@ -43,7 +40,9 @@ const myFirebaseAuthConfig = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
