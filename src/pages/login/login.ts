@@ -28,7 +28,7 @@ export class LoginPage {
   signin() {
     this.authProvider.signin({ email: this.email, password: this.password }).then((data) => {
       this.storage.set('uid', data.uid);
-      this.navCtrl.push(TabsPage);
+      this.navigateToMainPage();
     }).catch((error) => {
       let alert = this.alertCtrl.create({
         title: 'Nope!',
@@ -37,6 +37,19 @@ export class LoginPage {
       });
       alert.present();
     });
+  }
+
+  createAccount() {
+    this.authProvider.createAccount(this.email, this.password).then(user => {
+      console.log('successfully created account! user: ' + user);
+      this.navigateToMainPage();
+    }, error => {
+      console.log('error creating account! error: ' + error);
+    });
+  }
+
+  navigateToMainPage() {
+    this.navCtrl.push(TabsPage);
   }
 
 }
