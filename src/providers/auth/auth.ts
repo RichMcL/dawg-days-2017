@@ -21,7 +21,7 @@ export class AuthProvider {
     return this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
   }
 
-  logout() {
+  signOut() {
     this.storage.remove('uid');
     this.afAuth.auth.signOut();
   }
