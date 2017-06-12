@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { AuthProvider } from '../../providers/auth/auth';
 
@@ -10,7 +10,6 @@ import { AuthProvider } from '../../providers/auth/auth';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -20,7 +19,7 @@ export class LoginPage {
   password: string = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthProvider, private alertCtrl: AlertController, public storage: Storage) {
-  } 
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');

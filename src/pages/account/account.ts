@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthProvider } from "../../providers/auth/auth";
 
@@ -9,7 +9,6 @@ import { AuthProvider } from "../../providers/auth/auth";
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
 @Component({
   selector: 'page-account',
   templateUrl: 'account.html',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { ChatsProvider } from "../../providers/chats/chats";
 import { UserProvider } from "../../providers/user/user";
 import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
@@ -10,7 +10,6 @@ import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
 @Component({
   selector: 'page-chat-view',
   templateUrl: 'chat-view.html',

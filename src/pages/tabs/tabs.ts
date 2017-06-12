@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 import {UsersPage} from "../users/users";
 import {AccountPage} from "../account/account";
@@ -14,7 +14,6 @@ import {AccountPage} from "../account/account";
   selector: 'page-tabs',
   templateUrl: 'tabs.html'
 })
-@IonicPage()
 export class TabsPage {
 
   usersRoot = UsersPage;

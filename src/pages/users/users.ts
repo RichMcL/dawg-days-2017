@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { FirebaseListObservable } from "angularfire2/database";
 import { UserProvider } from "../../providers/user/user";
 import 'rxjs/add/operator/toPromise';
@@ -11,7 +11,6 @@ import { ChatViewPage } from "../chat-view/chat-view";
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
 @Component({
   selector: 'page-users',
   templateUrl: 'users.html',
