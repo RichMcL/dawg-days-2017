@@ -12,6 +12,9 @@
 </ion-header>
 
 <ion-content padding>
+    <span *ngIf="(users | async | filter:filter)?.length === 0">
+        No results found for '{{filter}}'
+    </span>
     <ion-list>
         <span *ngFor="let user of users | async | filter:filter">
             <a ion-item (click)="openChat(user)" *ngIf="user.$key !== uid">
