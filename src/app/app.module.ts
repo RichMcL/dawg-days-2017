@@ -17,6 +17,7 @@ import { ChatViewPage } from "../pages/chat-view/chat-view";
 import { ChatsProvider } from '../providers/chats/chats';
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireAuthModule} from "angularfire2/auth";
+import { FilterPipe } from '../pipes/filter/filter';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCLRvhu43PUO9Y_kPmkt2nls36LoMqFAkA",
@@ -34,7 +35,8 @@ export const firebaseConfig = {
     LoginPage,
     UsersPage,
     AccountPage,
-    ChatViewPage
+    ChatViewPage,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
