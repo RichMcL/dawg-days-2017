@@ -7,7 +7,7 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            {{messagee.email}}
+            {{messagee.displayName}}
         </ion-title>
     </ion-navbar>
 </ion-header>
@@ -21,7 +21,7 @@
                     <img *ngIf="messagee.picture" src="{{messagee.picture}}">
                 </ion-avatar>
                 <span>
-          <div class="user-name">{{messagee.email}}</div>
+          <div class="user-name">{{messagee.displayName}}</div>
           <span class="message-content">{{chat.message}}</span>
                 </span>
             </div>
@@ -32,7 +32,7 @@
                     <img *ngIf="user.picture" src="{{user.picture}}">
                 </ion-avatar>
                 <span>
-          <div class="user-name">{{user.email}}</div>
+          <div class="user-name">{{user.displayName}}</div>
           <span class="message-content">{{chat.message}}</span>
                 </span>
             </div>
