@@ -31,8 +31,9 @@ export class AccountPage {
     }
 
     logout() {
-        this.authProvider.logout();
-        this.appCtrl.getRootNav().setRoot(LoginPage);
+      this.navCtrl.setRoot(LoginPage).then(() => {
+        this.authProvider.signOut();
+      });
     }
 
     updatePicture() {
