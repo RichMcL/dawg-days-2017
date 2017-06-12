@@ -30,8 +30,9 @@ export class UserProvider {
   }
 
   updateDisplayName(uid, newDisplayName) {
-    let userRef = this.afDatabase.object(`/users/${uid}`);
-    userRef.set({displayName: newDisplayName});
+    this.getUser().then(user => {
+      user.update({displayName: newDisplayName});
+    })
   }
 
   // Get All Users of App

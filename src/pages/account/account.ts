@@ -22,8 +22,6 @@ export class AccountPage {
             userObservable.subscribe(user => {
                 console.log("user", user)
                 this.user = user;
-                //TODO - temp to populate display name
-                this.user.displayName = this.user.email;
             });
         });
     }
@@ -39,6 +37,11 @@ export class AccountPage {
 
     updatePicture() {
         console.log("update!");
+    }
+
+    updateDisplayName() {
+        console.log("saving name");
+        this.userProvider.updateDisplayName(this.user.uid, this.user.displayName);
     }
 
 }
