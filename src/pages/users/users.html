@@ -8,10 +8,10 @@
     <ion-navbar>
         <ion-title>Users</ion-title>
     </ion-navbar>
+    <ion-searchbar [(ngModel)]="filter"></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-input type="text" class="search" placeholder="Search" [(ngModel)]="filter"></ion-input>
     <ion-list>
         <span *ngFor="let user of users | async | filter:filter">
             <a ion-item (click)="openChat(user)" *ngIf="user.$key !== uid">
