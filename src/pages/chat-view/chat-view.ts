@@ -45,7 +45,8 @@ export class ChatViewPage {
       let chat = {
         from: this.uid,
         message: this.message,
-        type: 'message'
+        type: 'message',
+        timestamp: new Date().toJSON()
       };
       this.chats.push(chat);
       this.message = "";
