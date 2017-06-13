@@ -3,6 +3,7 @@ page-account {
         position: relative;
         width: 50%; 
         margin: 0 auto;
+        padding-top: 10px;
 
         ion-icon {
             position: absolute;        
@@ -12,8 +13,8 @@ page-account {
         }
 
         img {
-            padding: 10px;
-            margin-top: 10px;
+            // padding: 10px;
+            // margin-top: 10px;
         }
     }
 }
