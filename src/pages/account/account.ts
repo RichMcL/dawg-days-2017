@@ -42,6 +42,11 @@ export class AccountPage {
         this.userProvider.updatePicture();
     }
 
+    takePicture() {
+        console.log("take photo!");
+        this.userProvider.takePicture();
+    }
+
     updateDisplayName() {
         console.log("saving name");
         this.userProvider.updateDisplayName(this.user.uid, this.user.displayName);

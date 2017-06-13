@@ -14,6 +14,10 @@ import { AngularFireDatabase } from "angularfire2/database";
 @Injectable()
 export class UserProvider {
 
+  cameraData: string;
+  photoTaken: boolean;
+  photoSelected: boolean;
+
   constructor(public afDatabase: AngularFireDatabase, public local: Storage, private camera: Camera) {
     console.log('Hello UserProvider Provider');
   }
@@ -70,6 +74,29 @@ export class UserProvider {
           pictureRef.set(image);
         });
     });
+  }
+
+  takePicture() {
+    this.getUid().then(uid => {
+      let pictureRef = this.afDatabase.database.ref(`/users/${uid}/picture`);
+
+      var options = {
+        sourceType: this.camera.PictureSourceType.CAMERA,
+        destinationType: this.camera.DestinationType.DATA_URL
+      };
+      this.camera.getPicture(options).then((imageData) => {
+        this.cameraData = 'data:image/jpeg;base64,' + imageData;
+        this.photoTaken = true;
+        this.photoSelected = false;
+
+        pictureRef.set(this.cameraData);
+      }, (err) => {
+        // Handle error
+      });
+    });
+
+
+
   }
 
 

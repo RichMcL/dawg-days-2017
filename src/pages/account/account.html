@@ -13,10 +13,14 @@
 <ion-content padding>
     <div *ngIf="user">
         <ion-card>
-            <div class="picture-container" (click)="updatePicture()">
-                <ion-icon name="camera-outline"></ion-icon>
+            <div class="picture-container">
                 <img *ngIf="!user.picture" src="assets/images/default.svg" />
                 <img *ngIf="user.picture" [src]="sanitizer.bypassSecurityTrustUrl(user.picture)" />
+            </div>
+
+            <div padding>
+                <button ion-button full primary (click)="updatePicture()">Select From Gallery</button>            
+                <button ion-button full primary (click)="takePicture()">Open Camera</button>            
             </div>
 
             <ion-item>
