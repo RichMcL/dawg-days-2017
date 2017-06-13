@@ -21,7 +21,7 @@
                     <img *ngIf="messagee.picture" [src]="sanitizer.bypassSecurityTrustUrl(messagee.picture)">
                 </ion-avatar>
                 <span>
-          <div class="user-name">{{messagee.displayName}}</div>
+          <div class="user-name">{{messagee.displayName}} <span class="timestamp">{{chat.timestamp | date:'jm'}}</span></div>
           <span class="message-content">{{chat.message}}</span>
                 </span>
             </div>
