@@ -19,6 +19,7 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireAuthModule} from "angularfire2/auth";
 import { FilterPipe } from '../pipes/filter/filter';
 import { Camera } from "@ionic-native/camera";
+import { DomSanitizer } from '@angular/platform-browser';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCLRvhu43PUO9Y_kPmkt2nls36LoMqFAkA",

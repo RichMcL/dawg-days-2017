@@ -3,6 +3,7 @@ import { NavController, NavParams, App } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthProvider } from "../../providers/auth/auth";
 import { UserProvider } from "../../providers/user/user";
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 /**
  * Generated class for the AccountPage page.
@@ -17,7 +18,7 @@ import { UserProvider } from "../../providers/user/user";
 export class AccountPage {
     user: any;
 
-    constructor(public appCtrl: App, public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthProvider, public userProvider: UserProvider) {
+    constructor(public appCtrl: App, public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthProvider, public userProvider: UserProvider,  private sanitizer: DomSanitizer) {
         this.userProvider.getUser().then(userObservable => {
             userObservable.subscribe(user => {
                 console.log("user", user)
