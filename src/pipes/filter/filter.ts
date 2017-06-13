@@ -13,7 +13,7 @@ export class FilterPipe implements PipeTransform {
     transform(items: Array<any>, value: string): Array<any> {
         if (value && items) {
             return items.filter(function (item) {
-                return item.email && item.email.toLowerCase().includes(value.toLowerCase());
+                return item.displayName && item.displayName.toLowerCase().includes(value.toLowerCase());
             });
         }
 
