@@ -49,6 +49,10 @@ export class UserProvider {
   getPicture() {
     let base64Picture;
     let options = {
+      allowEdit: true,
+      targetHeight: 300,
+      targetWidth: 300,
+      correctOrientation: true,
       destinationType: 0,
       sourceType: 0,
       encodingType: 0
