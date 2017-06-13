@@ -18,7 +18,7 @@
             <div ion-item *ngIf="uid !== chat.from">
                 <ion-avatar item-left>
                     <img *ngIf="!messagee.picture" src="assets/images/default.svg">
-                    <img *ngIf="messagee.picture" src="{{messagee.picture}}">
+                    <img *ngIf="messagee.picture" [src]="sanitizer.bypassSecurityTrustUrl(messagee.picture)">
                 </ion-avatar>
                 <span>
           <div class="user-name">{{messagee.displayName}}</div>
@@ -28,11 +28,11 @@
 
             <div ion-item *ngIf="uid === chat.from">
                 <ion-avatar item-left>
-                    <img *ngIf="!user.picture" src="assets/images/default.svg">
-                    <img *ngIf="user.picture" src="{{user.picture}}">
+                    <img *ngIf="!user?.picture" src="assets/images/default.svg">
+                    <img *ngIf="user?.picture" [src]="sanitizer.bypassSecurityTrustUrl(user.picture)">
                 </ion-avatar>
                 <span>
-          <div class="user-name">{{user.displayName}}</div>
+          <div class="user-name">{{user?.displayName}}</div>
           <span class="message-content">{{chat.message}}</span>
                 </span>
             </div>

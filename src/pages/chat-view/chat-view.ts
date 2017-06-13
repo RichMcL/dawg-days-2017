@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ChatsProvider } from "../../providers/chats/chats";
 import { UserProvider } from "../../providers/user/user";
 import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 /**
  * Generated class for the ChatViewPage page.
@@ -21,7 +22,7 @@ export class ChatViewPage {
   user: any;
   chats: FirebaseListObservable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public chatsProvider: ChatsProvider, public userProvider: UserProvider, public afDatabase: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public chatsProvider: ChatsProvider, public userProvider: UserProvider, public afDatabase: AngularFireDatabase, private sanitizer: DomSanitizer) {
     this.uid = navParams.data.uid;
     this.messagee = navParams.data.messagee;
   }
