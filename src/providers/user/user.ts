@@ -81,6 +81,10 @@ export class UserProvider {
       let pictureRef = this.afDatabase.database.ref(`/users/${uid}/picture`);
 
       var options = {
+        allowEdit: true,
+        targetHeight: 300,
+        targetWidth: 300,
+        correctOrientation: true,
         sourceType: this.camera.PictureSourceType.CAMERA,
         destinationType: this.camera.DestinationType.DATA_URL
       };
