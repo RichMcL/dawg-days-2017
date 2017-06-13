@@ -4,6 +4,7 @@ import { FirebaseListObservable } from "angularfire2/database";
 import { UserProvider } from "../../providers/user/user";
 import 'rxjs/add/operator/toPromise';
 import { ChatViewPage } from "../chat-view/chat-view";
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 /**
  * Generated class for the UsersPage page.
@@ -19,7 +20,7 @@ export class UsersPage {
   users: FirebaseListObservable<any[]>;
   uid: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userProvider: UserProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userProvider: UserProvider, private sanitizer: DomSanitizer) {
   }
 
   async ngOnInit() {

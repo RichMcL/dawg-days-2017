@@ -20,7 +20,7 @@
             <a ion-item (click)="openChat(user)" *ngIf="user.$key !== uid">
                 <ion-avatar item-left>
                     <img *ngIf="!user.picture" src="assets/images/default.svg"> 
-                    <img *ngIf="user.picture" src="{{user.picture}}">
+                    <img *ngIf="user.picture" [src]="sanitizer.bypassSecurityTrustUrl(user.picture)">
                 </ion-avatar>
                 <h2>{{user.displayName}}</h2>
             </a> 
