@@ -17,7 +17,7 @@ export class ChatViewPage {
     user: any;
     chats: FirebaseListObservable<any>;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public chatsProvider: ChatsProvider, public userProvider: UserProvider, public afDatabase: AngularFireDatabase, private sanitizer: DomSanitizer) {
+    constructor(private navController: NavController, private navParams: NavParams, private chatsProvider: ChatsProvider, private userProvider: UserProvider, private angularFireDatabase: AngularFireDatabase, private sanitizer: DomSanitizer) {
         this.uid = navParams.data.uid;
         this.messagee = navParams.data.messagee;
     }
@@ -25,7 +25,7 @@ export class ChatViewPage {
     async ngOnInit() {
         this.chatsProvider.getChatRef(this.uid, this.messagee.$key)
             .then((chatRef: any) => {
-                this.chats = this.afDatabase.list(chatRef);
+                this.chats = this.angularFireDatabase.list(chatRef);
             });
 
         this.userProvider.getUser().then(userObservable => {
@@ -37,14 +37,14 @@ export class ChatViewPage {
 
     sendMessage() {
         if (this.message) {
-            let chat = {
+            this.chats.push({
                 from: this.uid,
                 message: this.message,
                 type: 'message',
                 timestamp: new Date().toJSON()
-            };
-            this.chats.push(chat);
-            this.message = "";
+            });
+
+            delete this.message;
         }
     }
 }
