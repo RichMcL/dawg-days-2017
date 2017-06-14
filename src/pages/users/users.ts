@@ -4,7 +4,7 @@ import { FirebaseListObservable } from "angularfire2/database";
 import { UserProvider } from "../../providers/user/user";
 import 'rxjs/add/operator/toPromise';
 import { ChatViewPage } from "../chat-view/chat-view";
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 /**
  * Generated class for the UsersPage page.

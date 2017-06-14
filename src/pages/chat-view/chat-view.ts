@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ChatsProvider } from "../../providers/chats/chats";
 import { UserProvider } from "../../providers/user/user";
-import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
+import { DomSanitizer } from '@angular/platform-browser';
 
 /**
  * Generated class for the ChatViewPage page.
