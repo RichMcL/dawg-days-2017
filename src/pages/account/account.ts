@@ -27,8 +27,8 @@ export class AccountPage {
         });
     }
 
-    updatePicture() {
-        this.userProvider.updatePicture();
+    choosePicture() {
+        this.userProvider.choosePicture();
     }
 
     takePicture() {

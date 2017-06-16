@@ -37,61 +37,35 @@ export class UserProvider {
     }
 
     // Get base64 Picture of User
-    getPicture() {
-        let base64Picture;
+    loadPictureFromCamera(sourceType) {
         let options = {
             allowEdit: true,
             targetHeight: 300,
             targetWidth: 300,
             correctOrientation: true,
             destinationType: 0,
-            sourceType: 0,
+            sourceType: sourceType,
             encodingType: 0
         };
 
-        let promise = new Promise((resolve, reject) => {
-            this.camera.getPicture(options).then((imageData) => {
-                base64Picture = "data:image/jpeg;base64," + imageData;
-                resolve(base64Picture);
-            }, (error) => {
-                reject(error);
-            });
-
-        });
-        return promise;
+        return this.camera.getPicture(options);
     }
 
-    updatePicture() {
+    savePicture(sourceType) {
         this.getUid().then(uid => {
             let pictureRef = this.afDatabase.database.ref(`/users/${uid}/picture`);
-            this.getPicture()
-                .then((image) => {
-                    pictureRef.set(image);
-                });
+
+            this.loadPictureFromCamera(sourceType).then((image) => {
+                pictureRef.set("data:image/jpeg;base64," + image);
+            });
         });
+    }
+
+    choosePicture() {
+        this.savePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
     }
 
     takePicture() {
-        this.getUid().then(uid => {
-            let pictureRef = this.afDatabase.database.ref(`/users/${uid}/picture`);
-
-            var options = {
-                allowEdit: true,
-                targetHeight: 300,
-                targetWidth: 300,
-                correctOrientation: true,
-                sourceType: this.camera.PictureSourceType.CAMERA,
-                destinationType: this.camera.DestinationType.DATA_URL
-            };
-            this.camera.getPicture(options).then((imageData) => {
-                this.cameraData = 'data:image/jpeg;base64,' + imageData;
-                this.photoTaken = true;
-                this.photoSelected = false;
-
-                pictureRef.set(this.cameraData);
-            }, (err) => {
-                // Handle error
-            });
-        });
+        this.savePicture(this.camera.PictureSourceType.CAMERA);
     }
 }
