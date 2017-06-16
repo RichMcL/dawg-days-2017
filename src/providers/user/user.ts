@@ -7,10 +7,6 @@ import "rxjs/add/operator/toPromise";
 
 @Injectable()
 export class UserProvider {
-    cameraData: string;
-    photoTaken: boolean;
-    photoSelected: boolean;
-
     constructor(private afDatabase: AngularFireDatabase, private local: Storage, private camera: Camera) { }
 
     // Get Current User's UID
