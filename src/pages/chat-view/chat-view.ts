@@ -21,10 +21,9 @@ export class ChatViewPage {
         this.uid = navParams.data.uid;
         this.messagee = navParams.data.messagee;
 
-        this.chatsProvider.getChatRef(this.uid, this.messagee.$key)
-            .then((chatRef: any) => {
-                this.chats = this.angularFireDatabase.list(chatRef);
-            });
+        this.chatsProvider.getChatRef(this.uid, this.messagee.$key).then((chatRef: any) => {
+            this.chats = this.angularFireDatabase.list(chatRef);
+        });
 
         this.userProvider.getUser().then(userObservable => {
             userObservable.subscribe(user => {
