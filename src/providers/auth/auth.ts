@@ -7,8 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthProvider {
 
-    constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, private storage: Storage) {
-    }
+    constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, private storage: Storage) { }
 
     signin(credentials) {
         return this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);

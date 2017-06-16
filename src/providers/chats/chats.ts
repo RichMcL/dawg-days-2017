@@ -7,8 +7,7 @@ import { UserProvider } from "../user/user";
 @Injectable()
 export class ChatsProvider {
 
-    constructor(private afDatabase: AngularFireDatabase, private userProvider: UserProvider) {
-    }
+    constructor(private afDatabase: AngularFireDatabase, private userProvider: UserProvider) { }
 
     getChatRef(uid, interlocutor) {
         let firstRef = this.afDatabase.object(`/chats/${uid},${interlocutor}`, { preserveSnapshot: true });

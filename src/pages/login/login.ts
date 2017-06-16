@@ -13,8 +13,7 @@ export class LoginPage {
     email: string = "";
     password: string = "";
 
-    constructor(private navCtrl: NavController, private navParams: NavParams, private authProvider: AuthProvider, private alertCtrl: AlertController, private storage: Storage) {
-    }
+    constructor(private navCtrl: NavController, private navParams: NavParams, private authProvider: AuthProvider, private alertCtrl: AlertController, private storage: Storage) { }
 
     signin() {
         this.authProvider.signin({ email: this.email, password: this.password }).then((data) => {

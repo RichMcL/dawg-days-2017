@@ -15,12 +15,11 @@ export class UsersPage {
     users: FirebaseListObservable<any[]>;
     uid: string;
 
-    constructor(private navController: NavController, private navParams: NavParams, private userProvider: UserProvider, private sanitizer: DomSanitizer) { }
-
-    ngOnInit() {
+    constructor(private navController: NavController, private navParams: NavParams, private userProvider: UserProvider, private sanitizer: DomSanitizer) {
         this.userProvider.getUid().then(uid => {
             this.uid = uid;
         });
+        
         this.users = this.userProvider.getAllUsers();
     }
 

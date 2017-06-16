@@ -16,7 +16,6 @@ export class AccountPage {
     constructor(private appController: App, private navController: NavController, private navParams: NavParams, private authProvider: AuthProvider, private userProvider: UserProvider, private sanitizer: DomSanitizer) {
         this.userProvider.getUser().then(userObservable => {
             userObservable.subscribe(user => {
-                console.log("user", user)
                 this.user = user;
             });
         });
