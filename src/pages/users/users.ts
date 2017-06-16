@@ -15,12 +15,13 @@ export class UsersPage {
     users: FirebaseListObservable<any[]>;
     uid: string;
 
-    constructor(private navController: NavController, private navParams: NavParams, private userProvider: UserProvider, private sanitizer: DomSanitizer) {
-    }
+    constructor(private navController: NavController, private navParams: NavParams, private userProvider: UserProvider, private sanitizer: DomSanitizer) { }
 
-    async ngOnInit() {
-        this.uid = await this.userProvider.getUid();
-        this.users = await this.userProvider.getAllUsers();
+    ngOnInit() {
+        this.userProvider.getUid().then(uid => {
+            this.uid = uid;
+        });
+        this.users = this.userProvider.getAllUsers();
     }
 
     openChat(user) {

@@ -22,7 +22,7 @@ export class ChatViewPage {
         this.messagee = navParams.data.messagee;
     }
 
-    async ngOnInit() {
+    ngOnInit() {
         this.chatsProvider.getChatRef(this.uid, this.messagee.$key)
             .then((chatRef: any) => {
                 this.chats = this.angularFireDatabase.list(chatRef);

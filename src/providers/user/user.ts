@@ -34,8 +34,8 @@ export class UserProvider {
     }
 
     // Get All Users of App
-    async getAllUsers() {
-        return Promise.resolve(this.afDatabase.list('/users'));
+    getAllUsers() {
+        return this.afDatabase.list('/users');
     }
 
     // Get base64 Picture of User
